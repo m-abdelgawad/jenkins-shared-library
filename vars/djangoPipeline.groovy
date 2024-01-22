@@ -1,4 +1,4 @@
-def call(Map pipelineParams) {
+def call(Map varsMap) {
 
     // Load common functions from /src/ directory
     def wsTools = new wsTools()
@@ -31,7 +31,7 @@ def call(Map pipelineParams) {
                         echo "Commit message is \'${commitMsg}\'"
 
                         // Set new image name
-                        newImage = pipelineParams['dockerhubRepo'] + ":" + commitId
+                        newImage = varsMap['dockerhubRepo'] + ":" + commitId
                         echo "New image tag will be \'${newImage}\'"
                         
                     } // end script
@@ -48,7 +48,7 @@ def call(Map pipelineParams) {
                         aptTools.installPython()
 
                         // Install requirements packages
-                        pythonTools.installReq("req.txt")
+                        pythonTools.installReq(varsMap['reqPath'])
                         
                     } // end script
                 } // end steps
