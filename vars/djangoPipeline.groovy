@@ -8,20 +8,21 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         // Load commom functions from /src/ directory
-                        def preparation = new preparation()
+                        def wsTools = new wsTools()
+                        def gitTools = new gitTools()
 
                         // Clean workspace
-                        preparation.clean()
+                        wsTools.clean()
 
                         // Pull the latest git version
-                        preparation.checkoutRepo()
+                        gitTools.checkoutRepo()
 
                         // Get commit ID
-                        commitId = preparation.getCommitId()
+                        commitId = gitTools.getCommitId()
                         echo "Commit ID is \'${commitId}\'"
 
                         // Get commit meassage
-                        commitMsg = preparation.getCommitMsg()
+                        commitMsg = gitTools.getCommitMsg()
                         echo "Commit message is \'${commitMsg}\'"
 
                         // Set new image name
@@ -30,6 +31,16 @@ def call(Map pipelineParams) {
                     } // end script
                 } // end steps
             } // end stage Preparation
+
+            
+            stage('Testing') {
+                steps {
+                    script {
+                        
+                    } // end script
+                } // end steps
+            } // end stage Testing
+            
         } // end stages
     } // end pipeline
 } // end call function
