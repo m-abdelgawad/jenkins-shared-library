@@ -12,52 +12,7 @@ def call(Map varsMap) {
         }
         stages {
             
-            // stage('Preparation') {
-            //     steps {
-            //         script {
-                        
-            //             // Clean workspace
-            //             wsTools.clean()
-
-            //             // Pull the latest git version
-            //             gitTools.checkoutRepo()
-
-            //             // Get commit ID
-            //             commitId = gitTools.getCommitId()
-            //             echo "Commit ID is \'${commitId}\'"
-
-            //             // Get commit meassage
-            //             commitMsg = gitTools.getCommitMsg()
-            //             echo "Commit message is \'${commitMsg}\'"
-
-            //             // Set new image name
-            //             newImage = varsMap['dockerhubRepo'] + ":" + commitId
-            //             echo "New image tag will be \'${newImage}\'"
-                        
-            //         } // end script
-            //     } // end steps
-            // } // end stage Preparation
-
-            // stage('Testing') {
-            //     steps {
-            //         script {
-            //             // update image os
-            //             aptTools.updatePackages()
-
-            //             // Install Python
-            //             aptTools.installPython()
-
-            //             // Install requirements packages
-            //             pythonTools.installReq(varsMap['reqPath'])
-
-            //             // Test the app
-            //             pythonTools.testDjango()
-                        
-            //         } // end script
-            //     } // end steps
-            // } // end stage Testing
-
-            stage('Build') {
+            stage('Preparation') {
                 steps {
                     script {
                         sh """
@@ -73,6 +28,44 @@ def call(Map varsMap) {
                             apt update
                             apt install -y docker-ce-cli docker-compose-plugin
                         """
+                        
+                        // Clean workspace
+                        wsTools.clean()
+
+                        // Pull the latest git version
+                        gitTools.checkoutRepo()
+
+                        // Get commit ID
+                        commitId = gitTools.getCommitId()
+                        echo "Commit ID is \'${commitId}\'"
+
+                        // Get commit meassage
+                        commitMsg = gitTools.getCommitMsg()
+                        echo "Commit message is \'${commitMsg}\'"
+
+                        // Set new image name
+                        newImage = varsMap['dockerhubRepo'] + ":" + commitId
+                        echo "New image tag will be \'${newImage}\'"
+                        
+                    } // end script
+                } // end steps
+            } // end stage Preparation
+
+            stage('Testing') {
+                steps {
+                    script {
+                        // update image os
+                        aptTools.updatePackages()
+
+                        // Install Python
+                        aptTools.installPython()
+
+                        // Install requirements packages
+                        pythonTools.installReq(varsMap['reqPath'])
+
+                        // Test the app
+                        pythonTools.testDjango()
+                        
                     } // end script
                 } // end steps
             } // end stage Testing
