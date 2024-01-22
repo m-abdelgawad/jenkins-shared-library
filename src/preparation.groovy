@@ -1,3 +1,3 @@
-def checkOutFrom(myparams) {
-  println myparams['name']
+def clean(myparams) {
+  cleanWs()
 }
