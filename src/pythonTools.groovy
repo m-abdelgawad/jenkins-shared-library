@@ -1,5 +1,10 @@
 def installReq(reqPath) {
   script {
-    sh "pip install -r ${reqPath}"
+    sh '''
+      . venv/bin/activate
+      python --version
+      pip install -r ${reqPath}
+      
+    '''
   }
 }
