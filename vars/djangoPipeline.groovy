@@ -27,10 +27,9 @@ def call(Map pipelineParams) {
                         // Set new image name
                         newImage = pipelineParams['dockerhubRepo'] + ":" + commitId
                         echo "New image tag will be \'${newImage}\'"
-                        
-                    }
-                }
-            }
-        }
-    }
-}
+                    } // end script
+                } // end steps
+            } // end stage Preparation
+        } // end stages
+    } // end pipeline
+} // end call function
