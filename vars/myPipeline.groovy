@@ -5,8 +5,8 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
-                        load 'src/MyFunctions.groovy'
-                        preparation(pipelineParams)
+                        def myUtils = new org.demo.buildUtils()
+                        myUtils.checkOutFrom(repo)
                     }
                 }
             }
