@@ -1,6 +1,8 @@
 def call(Map pipelineParams) {
     pipeline {
-        agent any
+        agent { 
+            label 'kubeagent' 
+        }
         stages {
             stage('Preparation') {
                 steps {
