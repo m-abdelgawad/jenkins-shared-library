@@ -3,7 +3,7 @@ def call(Map pipelineParams) {
     // Load commom functions from /src/ directory
     def wsTools = new wsTools()
     def gitTools = new gitTools()
-    def osTools = new osTools()
+    def aptTools = new aptTools()
     
     pipeline {
         agent { 
@@ -40,7 +40,7 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         // update image os
-                        osTools.updateAptPackages()
+                        aptTools.updateAptPackages()
                     } // end script
                 } // end steps
             } // end stage Testing
