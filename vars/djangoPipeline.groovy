@@ -36,7 +36,7 @@ def call(Map varsMap) {
 
                         sh '''
                             apt update
-                            apt install podman
+                            apt install -y podman
                             podman build . -t test
                         '''
                         
