@@ -61,6 +61,7 @@ def call(Map varsMap) {
                 steps {
                     script {
                         sh """
+                            apt update
                             apt install ca-certificates curl gnupg
                             install -m 0755 -d /etc/apt/keyrings
                             curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
