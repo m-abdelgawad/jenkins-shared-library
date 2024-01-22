@@ -41,6 +41,9 @@ def call(Map pipelineParams) {
                     script {
                         // update image os
                         aptTools.updatePackages()
+
+                        // Install Python
+                        aptTools.installPython()
                     } // end script
                 } // end steps
             } // end stage Testing
