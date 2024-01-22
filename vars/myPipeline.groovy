@@ -6,7 +6,7 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         def myUtils = new org.demo.buildUtils()
-                        myUtils.checkOutFrom(repo)
+                        myUtils.checkOutFrom(pipelineParams)
                     }
                 }
             }
