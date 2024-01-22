@@ -33,12 +33,6 @@ def call(Map varsMap) {
                         // Set new image name
                         newImage = varsMap['dockerhubRepo'] + ":" + commitId
                         echo "New image tag will be \'${newImage}\'"
-
-                        sh '''
-                            apt update
-                            apt install -y podman
-                            podman build -f Dockerfile -t test .
-                        '''
                         
                     } // end script
                 } // end steps
