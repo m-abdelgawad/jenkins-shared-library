@@ -40,7 +40,7 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         // update image os
-                        aptTools.updateAptPackages()
+                        aptTools.updatePackages()
                     } // end script
                 } // end steps
             } // end stage Testing
