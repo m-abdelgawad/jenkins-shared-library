@@ -1,3 +1,3 @@
-def clean(myparams) {
+def clean() {
   cleanWs()
 }
