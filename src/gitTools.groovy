@@ -1,7 +1,3 @@
-def clean() {
-  cleanWs()
-}
-
 def checkoutRepo() {
   checkout scm
 }
