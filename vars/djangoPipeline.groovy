@@ -1,9 +1,10 @@
 def call(Map pipelineParams) {
 
-    // Load commom functions from /src/ directory
+    // Load common functions from /src/ directory
     def wsTools = new wsTools()
     def gitTools = new gitTools()
     def aptTools = new aptTools()
+    def pythonTools = new pythonTools()
     
     pipeline {
         agent { 
@@ -32,6 +33,7 @@ def call(Map pipelineParams) {
                         // Set new image name
                         newImage = pipelineParams['dockerhubRepo'] + ":" + commitId
                         echo "New image tag will be \'${newImage}\'"
+                        
                     } // end script
                 } // end steps
             } // end stage Preparation
@@ -44,6 +46,10 @@ def call(Map pipelineParams) {
 
                         // Install Python
                         aptTools.installPython()
+
+                        // Install requirements packages
+                        pythonTools.installReq("req.txt")
+                        
                     } // end script
                 } // end steps
             } // end stage Testing
