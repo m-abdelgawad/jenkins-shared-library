@@ -6,28 +6,7 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
-                        
-                    }
-                }
-            }
-
-            stage('Testing') {
-                steps {
-                    script {
-                    }
-                }
-            }
-
-            stage('Building') {
-                steps {
-                    script {
-                    }
-                }
-            }
-
-            stage('Deploying') {
-                steps {
-                    script {
+                        echo 'Hello world!'
                     }
                 }
             }
