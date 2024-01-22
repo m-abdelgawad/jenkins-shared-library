@@ -32,15 +32,6 @@ def call(Map pipelineParams) {
                 } // end steps
             } // end stage Preparation
 
-            
-            stage('Testing') {
-                steps {
-                    script {
-                        
-                    } // end script
-                } // end steps
-            } // end stage Testing
-            
         } // end stages
     } // end pipeline
 } // end call function
