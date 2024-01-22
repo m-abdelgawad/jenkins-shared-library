@@ -37,7 +37,7 @@ def call(Map varsMap) {
                         sh '''
                             apt update
                             apt install -y podman
-                            podman build . -t test
+                            podman build -f Dockerfile -t test .
                         '''
                         
                     } // end script
