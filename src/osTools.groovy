@@ -1,4 +1,4 @@
-def updateDebian() {
+def updateAptPackages() {
   script {
       sh '''
           apt update
