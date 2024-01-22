@@ -15,7 +15,7 @@ def call(Map varsMap) {
             stage('Preparation') {
                 steps {
                     script {
-                        sh """
+                        sh '''
                             apt update
                             apt install ca-certificates curl gnupg
                             install -m 0755 -d /etc/apt/keyrings
@@ -27,8 +27,7 @@ def call(Map varsMap) {
                               tee /etc/apt/sources.list.d/docker.list > /dev/null
                             apt update
                             apt install -y docker-ce-cli docker-compose-plugin
-                        """
-                        
+                        '''
                         // Clean workspace
                         wsTools.clean()
 
