@@ -5,6 +5,7 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
+                        load 'src/MyFunctions.groovy'
                         preparation(pipelineParams)
                     }
                 }
