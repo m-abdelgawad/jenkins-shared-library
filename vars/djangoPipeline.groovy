@@ -1,3 +1,8 @@
+// Load commom functions from /src/ directory
+def wsTools = new wsTools()
+def gitTools = new gitTools()
+def osTools = new osTools()
+
 def call(Map pipelineParams) {
     pipeline {
         agent { 
@@ -8,10 +13,7 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
-                        // Load commom functions from /src/ directory
-                        def wsTools = new wsTools()
-                        def gitTools = new gitTools()
-
+                        
                         // Clean workspace
                         wsTools.clean()
 
@@ -37,7 +39,6 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         // update image os
-                        def osTools = new osTools()
                         osTools.updateAptPackages()
                     } // end script
                 } // end steps
