@@ -6,7 +6,7 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
-                        echo 'Hello world!'
+                        echo pipelineParams['name']
                     }
                 }
             }
