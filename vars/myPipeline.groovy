@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
-                        MyFunctions.preparation(pipelineParams)
+                        preparation(pipelineParams)
                     }
                 }
             }
