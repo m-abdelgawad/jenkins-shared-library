@@ -1,9 +1,10 @@
-// Load commom functions from /src/ directory
-def wsTools = new wsTools()
-def gitTools = new gitTools()
-def osTools = new osTools()
-
 def call(Map pipelineParams) {
+
+    // Load commom functions from /src/ directory
+    def wsTools = new wsTools()
+    def gitTools = new gitTools()
+    def osTools = new osTools()
+    
     pipeline {
         agent { 
             label 'kubeagent'
