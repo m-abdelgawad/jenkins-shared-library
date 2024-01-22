@@ -49,6 +49,9 @@ def call(Map varsMap) {
 
                         // Install requirements packages
                         pythonTools.installReq(varsMap['reqPath'])
+
+                        // Test the app
+                        pythonTools.testDjango()
                         
                     } // end script
                 } // end steps
