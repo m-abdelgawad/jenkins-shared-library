@@ -4,6 +4,8 @@ def call(Map pipelineParams) {
             label 'kubeagent'
         }
         stages {
+
+            
             stage('Preparation') {
                 steps {
                     script {
@@ -32,6 +34,18 @@ def call(Map pipelineParams) {
                 } // end steps
             } // end stage Preparation
 
+
+            stage('Testing') {
+                steps {
+                    script {
+                        // update image os
+                        def osTools = new osTools()
+                        osTools.updateAptPackages()
+                    } // end script
+                } // end steps
+            } // end stage Testing
+
+            
         } // end stages
     } // end pipeline
 } // end call function
