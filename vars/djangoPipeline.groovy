@@ -18,11 +18,16 @@ def call(Map pipelineParams) {
 
                         // Get commit ID
                         commitId = preparation.getCommitId()
-                        echo "Commit ID is <<${commitId}>>"
+                        echo "Commit ID is \'${commitId}\'"
 
                         // Get commit meassage
                         commitMsg = preparation.getCommitMsg()
                         echo "Commit message is \'${commitMsg}\'"
+
+                        // Set new image name
+                        newImage = pipelineParams['dockerhubRepo'] + ":" + commitId
+                        echo "New image tag will be \'${newImage}\'"
+                        
                     }
                 }
             }
