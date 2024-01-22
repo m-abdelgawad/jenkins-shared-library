@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
             stage('Preparation') {
                 steps {
                     script {
-                        def myUtils = new org.demo.buildUtils()
+                        def myUtils = new buildUtils()
                         myUtils.checkOutFrom(pipelineParams)
                     }
                 }
